@@ -15,7 +15,11 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className="min-h-full flex flex-col">
-        <ClerkProvider>
+        <ClerkProvider
+          signInUrl="/sign-in"
+          signUpUrl="/sign-up"
+          afterSignOutUrl="/"
+        >
           <header className="flex justify-end items-center p-4 gap-4 h-16">
             <SignedOut>
               <SignInButton>
