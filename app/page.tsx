@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { UserButton, SignedIn } from '@clerk/nextjs';
 import BoardColumn from '../components/BoardColumn';
 import ActivityLog from '../components/ActivityLog';
 import type { Board, Task, ActivityLog as ActivityType, Workspace, Project } from '../types';
@@ -111,12 +112,25 @@ export default function Home() {
 
   return (
     <main className="page-shell">
-      <div className="topbar">
+      <div className="topbar mb-6">
         <div>
           <p className="text-muted">Workspace</p>
           <h1 className="page-title">{initialWorkspace.name}</h1>
           <p className="description">{initialWorkspace.description}</p>
         </div>
+
+        <SignedIn>
+          <div className="flex items-center gap-3 bg-white p-2 px-3 rounded-xl border border-gray-200 shadow-sm">
+            <UserButton 
+              appearance={{
+                elements: {
+                  userButtonAvatarBox: "w-10 h-10", // Memperbesar ukuran avatar profil
+                }
+              }}
+              showName={true}
+            />
+          </div>
+        </SignedIn>
       </div>
 
       <div className="board-layout">
