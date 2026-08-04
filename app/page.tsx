@@ -124,7 +124,7 @@ export default function Home() {
             <UserButton 
               appearance={{
                 elements: {
-                  userButtonAvatarBox: "w-10 h-10", // Memperbesar ukuran avatar profil
+                  userButtonAvatarBox: "w-50 h-50",
                 }
               }}
               showName={true}
